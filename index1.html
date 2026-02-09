@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Danae Valeria ❤️</title>
+    <style>
+        /* Fondo con patrón de corazones y degradado */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffe4e1;
+            background-image: radial-gradient(#ffb6c1 10%, transparent 20%),
+                              radial-gradient(#ffb6c1 10%, transparent 20%);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Tarjeta principal blanca */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(214, 51, 132, 0.2);
+            text-align: center;
+            max-width: 450px;
+            width: 85%;
+            border: 2px solid #ff85a1;
+            z-index: 10;
+        }
+
+        h1 {
+            color: #d63384;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .pregunta {
+            font-weight: bold;
+            color: #ff4d6d;
+            font-size: 1.4rem;
+            margin-top: 20px;
+        }
+
+        /* Contenedor de botones */
+        .botones {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 30px;
+            height: 100px; /* Espacio para que el botón 'No' se mueva dentro */
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+            touch-action: none;
+        }
+
+        #si {
+            background: linear-gradient(45deg, #ff4d6d, #ff85a1);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+        }
+
+        #si:hover {
+            transform: scale(1.1);
+        }
+
+        #no {
+            background-color: #f0f0f0;
+            color: #888;
+            position: absolute; /* Importante para el movimiento libre */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>¡Hola, mi preciosa Danae Valeria! ❤️</h1>
+        <p>Tengo una pregunta muy importante para ti...</p>
+        <p class="pregunta">¿Quieres ser mi San Valentín?</p>
+        
+        <div class="botones">
+            <button id="si">¡SÍ, CLARO QUE QUIERO! 🥰</button>
+            <button id="no">No</button>
+        </div>
+    </div>
+
+    <script>
+        const btnNo = document.getElementById('no');
+        const btnSi = document.getElementById('si');
+
+        function moverBoton() {
+            // Evitamos que se salga de los bordes visibles
+            const padding = 50;
+            const x = Math.random() * (window.innerWidth - btnNo.offsetWidth - padding);
+            const y = Math.random() * (window.innerHeight - btnNo.offsetHeight - padding);
+            
+            btnNo.style.position = "fixed";
+            btnNo.style.left = x + "px";
+            btnNo.style.top = y + "px";
+            btnNo.style.zIndex = "999";
+        }
+
+        // Eventos para PC y Móvil
+        btnNo.addEventListener('mouseenter', moverBoton);
+        btnNo.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            moverBoton();
+        });
+
+        // Al dar clic en SI
+        btnSi.addEventListener('click', () => {
+            alert('¡LO SABÍA! ❤️ Eres el amor de mi vida, Danae Valeria. ¡Te veo pronto! 😍');
+            // Opcional: window.location.href = "TU_LINK_DE_FOTO_AQUI";
+        });
+    </script>
+</body>
+</html>
